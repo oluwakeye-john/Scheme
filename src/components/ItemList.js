@@ -46,15 +46,21 @@ const ItemList = () => {
         </span>
       </li>
 
-      {listItems.map((item, index) => (
-        <Item
-          item={item}
-          key={item.text + index}
-          id={index}
-          onRefresh={handleRefreshList}
-          onDeleteItem={handleDeleteItem}
-        />
-      ))}
+      {listItems.length === 0 ? (
+        <div>
+          <p>No Todo yet</p>
+        </div>
+      ) : (
+        listItems.map((item, index) => (
+          <Item
+            item={item}
+            key={item.text + index}
+            id={index}
+            onRefresh={handleRefreshList}
+            onDeleteItem={handleDeleteItem}
+          />
+        ))
+      )}
     </ul>
   );
 };

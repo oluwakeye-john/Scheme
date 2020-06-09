@@ -10,14 +10,17 @@ const Navbar = ({ handleColorChange, defaultValue }) => {
       clearAll();
     }
   };
+
   return (
     <nav className="navbar navbar-dark bg-dark shadow sticky-top">
       <div className="container">
-        <Link to="/" className="navbar-brand">
-          ToDo
-        </Link>
+        <div className="mr-auto">
+          <Link to="/" className="navbar-brand">
+            ToDo
+          </Link>
+        </div>
 
-        <div className="mx-auto">
+        <div className="ml-auto">
           <input
             type="color"
             onChange={handleColorChange}
@@ -25,14 +28,11 @@ const Navbar = ({ handleColorChange, defaultValue }) => {
           />
         </div>
 
-        <div className="ml-auto">
+        {/* <div className="ml-auto">
           <button className="btn" onClick={onClearAll}>
             <span className="fas fa-trash text-white" />
           </button>
-          <button className="btn">
-            <span className="fas fa-recycle text-white" />
-          </button>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
