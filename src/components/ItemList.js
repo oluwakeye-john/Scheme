@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import TextBox from "./textBox";
 import { getListItems, newListItem, deleteItem } from "../utils/saveList";
 import Item from "./Item";
 
@@ -8,8 +7,6 @@ const ItemList = () => {
 
   const handleRefreshList = () => {
     const list = getListItems();
-    console.log("Present list ", listItems);
-    console.log("New list ", list);
     setListItems(list);
   };
 
@@ -52,7 +49,7 @@ const ItemList = () => {
       {listItems.map((item, index) => (
         <Item
           item={item}
-          key={item.text}
+          key={item.text + index}
           id={index}
           onRefresh={handleRefreshList}
           onDeleteItem={handleDeleteItem}

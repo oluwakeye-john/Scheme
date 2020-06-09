@@ -65,3 +65,7 @@ export const deleteItem = (id) => {
     updateList(newList);
   }
 };
+
+export const clearAll = () => {
+  localStorage.setItem("listItems", JSON.stringify([]));
+};

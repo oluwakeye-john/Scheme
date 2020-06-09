@@ -19,7 +19,7 @@ const TextBox = ({ item, onRefresh }) => {
       <input
         type="text"
         name="item"
-        className="border-0"
+        className={`border-0 ${item.completed ? "text-muted" : ""}`}
         placeholder="Type here"
         defaultValue={item.text}
       />

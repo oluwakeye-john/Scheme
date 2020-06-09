@@ -2,9 +2,14 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { clearAll } from "../utils/saveList";
 
 const Navbar = ({ handleColorChange, defaultValue }) => {
-  console.log(defaultValue);
+  const onClearAll = () => {
+    if (window.confirm("Are you sure you want to clear your todo")) {
+      clearAll();
+    }
+  };
   return (
     <nav className="navbar navbar-dark bg-dark shadow sticky-top">
       <div className="container">
@@ -12,12 +17,21 @@ const Navbar = ({ handleColorChange, defaultValue }) => {
           ToDo
         </Link>
 
-        <div className="ml-auto">
+        <div className="mx-auto">
           <input
             type="color"
             onChange={handleColorChange}
             defaultValue={defaultValue}
           />
+        </div>
+
+        <div className="ml-auto">
+          <button className="btn" onClick={onClearAll}>
+            <span className="fas fa-trash text-white" />
+          </button>
+          <button className="btn">
+            <span className="fas fa-recycle text-white" />
+          </button>
         </div>
       </div>
     </nav>
